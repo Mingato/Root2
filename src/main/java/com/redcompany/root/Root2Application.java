@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @SpringBootApplication
-public class Root2Application extends SpringBootServletInitializer {
+public class Root2Application {//extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		
