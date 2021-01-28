@@ -26,23 +26,8 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                 .and()
                 .oauth2Login().loginPage("/oauth-login")
                 .and()
-                .logout().logoutUrl("/applogout")
-                .logoutSuccessHandler(oidcLogoutSuccessHandler());
+                .logout().logoutUrl("/applogout");
 
     }
 
-    @Autowired
-    private ClientRegistrationRepository clientRegistrationRepository;
-
-    private LogoutSuccessHandler oidcLogoutSuccessHandler() {
-
-        OidcClientInitiatedLogoutSuccessHandler oidcLogoutSuccessHandler =
-                new OidcClientInitiatedLogoutSuccessHandler(
-                        this.clientRegistrationRepository);
-
-        oidcLogoutSuccessHandler.setPostLogoutRedirectUri(
-                URI.create("http://localhost:8080"));
-
-        return oidcLogoutSuccessHandler;
-    }
 }
